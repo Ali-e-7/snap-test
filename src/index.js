@@ -4,10 +4,8 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import './assets/style/index.css'
 import store from './store'
-import { getVendors } from './Pages/VendorList/vendorSlice';
 import { Provider } from 'react-redux';
 
-store.dispatch(getVendors)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root')

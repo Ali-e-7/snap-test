@@ -2,52 +2,29 @@
 import { mdiMagnify, mdiSortAscending, mdiChevronUp } from '@mdi/js';
 import Icon from '@mdi/react';
 import './style.scss';
-import { firstList, getMoreVendors, newTest } from './vendorSlice';
-import { useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux';
+import { firstList } from './vendorSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import VendorsCards from './components/VendorsCard';
-import store from '../../store'
+import ScrollTopBtn from './components/ScrollTopBtn';
+import { useEffect  } from 'react';
+import { getVendors } from './vendorSlice';
+import { useOnScrollLoadMore } from '../../assets/http/loadMore';
+
 
 export default function VendorList() {
+
     const state = useSelector(firstList)
-    const NewR = useSelector(newTest)
+    const dispatch = useDispatch()
     const cards = state.finalResult?.map((card, index) => <VendorsCards cardsData={card.data} key={card.data.id - index} />)
 
-    // const ref = useRef(null)
-    // const setScroll = () => {
-    //     const scroll = window.pageYOffset
-    //     const height = ref.current.clientHeight/2
-    //     if(scroll > height) {
-    //         store.dispatch<any>(getMoreVendors)
-    //         NewR.newResult.map(item => {
-    //             state.finalResult.push(item)
-    //         })
+    
+    const page = useOnScrollLoadMore(50,1);
 
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     window.addEventListener("scroll", setScroll);
-    //     return () => {
-    //         window.removeEventListener("scroll", setScroll);
-    //     };
-    // }, [state]);
-    function test() {
-        store.dispatch(getMoreVendors)
-        NewR.newResult.map(item => {
-            state.finalResult.push(item)
-        })
-    }
-
-    function goToTop() {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-        });
-    }
-
-    return <div className='vendors-list' onClick={test} >
+    useEffect(() => {
+        dispatch(getVendors(page))
+        
+    },[page])
+    return <div className='vendors-list'>
         <div className="search">
             <input type="text" className="search__input" placeholder='جستجو   ' />
             <Icon path={mdiMagnify} size={1.4} className='search__icon' />
@@ -69,14 +46,12 @@ export default function VendorList() {
             <button className='filtrs__btn'>دارای تخفیف</button>
         </div>
         <div className="total">
-            <div className='sort-title'>{state.count} فروشنده ی باز</div>
+            <div className='sort-title'>{state?.count} فروشنده ی باز</div>
         </div>
         <div className="scrollableContainer">
 
             {cards}
         </div>
-        <button className=' scroll--top--btn' onClick={goToTop}>
-            <Icon path={mdiChevronUp} size={1.4} className='search__icon' />
-        </button>
+        <ScrollTopBtn />
     </div>
 }

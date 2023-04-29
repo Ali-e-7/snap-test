@@ -1,10 +1,10 @@
-import { legacy_createStore as createStore,applyMiddleware} from 'redux'
+import {  createStore,applyMiddleware} from 'redux'
 import rootReducer from './reducer'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import thunk from 'redux-thunk'
+// import { composeWithDevTools } from 'redux-devtools-extension'
+import thunkMiddleware from 'redux-thunk'
 
-const composeEnhancer = composeWithDevTools(applyMiddleware(thunk))
+// const composeEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
 
-const store = createStore(rootReducer,composeEnhancer)
+const store = createStore(rootReducer,applyMiddleware(thunkMiddleware))
 
 export default store

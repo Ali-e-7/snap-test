@@ -4,23 +4,23 @@ import VendorList from './Pages/VendorList/VendorList';
 import Footer from './Share/Footer/Footer';
 import Header from './Share/Header/Header';
 import './assets/style/app.css'
-function App() {
 
+function App() {
   return (
-    <>
+    <div >
       <Header />
-      <div className='main'>
+      <div className='main' >
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route path="/vendor-list">
-            <VendorList />
+            <VendorList/>
           </Route>
         </Switch>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

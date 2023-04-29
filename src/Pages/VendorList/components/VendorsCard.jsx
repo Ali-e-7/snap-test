@@ -1,5 +1,5 @@
 export default function VendorsCards({ cardsData }) {
-    const badges = cardsData.badges.map(bags => <span className="send__type">{bags.title}</span>)
+    const badges = cardsData?.badges.map(bags => <span className="send__type">{bags.title}</span>)
     return <>
         <div className="vendors">
             <div className="vendors__item">
@@ -20,10 +20,11 @@ export default function VendorsCards({ cardsData }) {
                     <div className='food'>
                         <span>{cardsData.description}</span>
                     </div>
-                    {/* {cardsData.badges ? <div className='send'>
-                        <div className='send__type'>{badges}</div>
+                    {badges ? <div className='send'>
+                        <div className='send__type'>{badges}
                         <span>15.500 تومان</span>
-                    </div> : null} */}
+                        </div>
+                    </div> : null}
                 </div>
             </div>
         </div></>
