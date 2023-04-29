@@ -1,11 +1,16 @@
 import React from "react";
 import { mdiHomeOutline, mdiReceiptTextOutline , mdiAccountOutline } from '@mdi/js';
 import Icon from '@mdi/react';
-import './style.css'
-export default class Footer extends React.Component {
-    render() {
+import './style.scss'
+import { useHistory } from "react-router-dom";
+const Footer = () =>  {
+
+	const history = useHistory()
+
+	const handleRedirect = () => history.push("/home")
+
         return <div className="footer">
-            <button className="footer__btn home-btn">
+            <button onClick={handleRedirect} className="footer__btn home-btn">
                 <Icon path={mdiHomeOutline} size={1.1} className='search__icon' />
                 <span>خانه</span>
             </button>
@@ -20,5 +25,6 @@ export default class Footer extends React.Component {
             </button>
         </div>
     }
-}
 
+
+export default Footer

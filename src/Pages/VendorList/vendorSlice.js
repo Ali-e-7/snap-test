@@ -1,4 +1,4 @@
-import HTTP from "../../assets/http/http";
+import HTTP from "../../http/http";
 const initialState = {
   isLoading: false,
   finalResult: []
