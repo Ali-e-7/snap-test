@@ -1,7 +1,6 @@
 import { mdiChevronUp } from '@mdi/js';
 import Icon from '@mdi/react';
 import '../style.scss';
-import { useEffect,useState } from 'react';
 export default function ScrollTopBtn() {
     function goToTop() {
         window.scrollTo({

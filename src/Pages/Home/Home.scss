@@ -1,3 +1,24 @@
-.main {
-    height: 0;
+.home {
+    height:90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.selected-map {
+    background-color: rgba(189, 39, 45, 0.04);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 28px;
+    padding: 4px 12px 4px 10px;
+    border-radius: 999px;
+    line-height: 20px;
+    span {
+        font-size: 14px;
+        font-weight: 500;
+        color: #404040;
+        margin-left: 6px;
+        color: #bd272d;
+    }
 }

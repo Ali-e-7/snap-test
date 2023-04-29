@@ -181,6 +181,24 @@
                 flex-shrink: 0;
             }
 
+            .rate {
+                background-color: rgba(91, 168, 41, 0.08);
+                color: #5ba839;
+                font-size: 12px;
+                font-weight: 400;
+                padding: 2px 4px 2px 2px;
+                border-radius: 4px;
+                margin-right: 5px;
+                padding: 0 5px;
+    
+            }
+
+            .comment-count {
+                font-size: 12px;
+                font-weight: 400;
+                color: #a3a3a3;
+            }
+
             .send {
                 font-size: 12px;
                 font-weight: 400;
@@ -198,6 +216,7 @@
     }
 
 }
+
 .scroll--top--btn {
     display: flex;
     justify-content: center;
@@ -210,11 +229,13 @@
     height: 38px;
     border-radius: 50%;
     border: none;
-    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0,0.5);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
     background-color: white;
+
     .btn-show {
         display: block;
     }
+
     .btn-hide {
         display: none;
     }
